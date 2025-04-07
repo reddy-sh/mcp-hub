@@ -1,5 +1,5 @@
 def main():
-    print("Hello from mcp-hub!")
+    print("Hello from mcp-clients!")
 
 
 if __name__ == "__main__":

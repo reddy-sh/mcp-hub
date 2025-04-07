@@ -1,38 +1,57 @@
-# mcp-hub
-mcp-hub
+# MCP Hub Documentation
 
+## Overview
+MCP Hub is a framework for creating and managing Model Context Protocol (MCP) servers and clients. It leverages the `uv` tool for fast package installation and configuration management.
 
-<!-- Why UV -->
-UV is blazing fast package install and other config. learn few commands to start with and your good to go. 
-uv init
-<!-- update the python version .python-version and update in pyproject.toml -->
-uv sync
+## Why Use UV?
+UV simplifies package management and configuration with blazing-fast commands. Learn a few commands to get started, and you're good to go:
 
+- Initialize a project:
+  ```bash
+  uv init
+  ```
+- Sync Python version and dependencies:
+  ```bash
+  uv sync
+  ```
 
-https://github.com/astral-sh/uv
+For more details, visit the [UV GitHub repository](https://github.com/astral-sh/uv).
 
-<!-- Motivation -->
-https://modelcontextprotocol.io/quickstart/server
+## Motivation
+To understand the basics of MCP and get started with creating MCP servers, refer to the [MCP Quickstart Server Guide](https://modelcontextprotocol.io/quickstart/server).
 
-<!-- Getting started  -->
-1. how to create a sample mcp server
-2. what tools you need to build your first mcp server
-3. how to run the mcp
+## Getting Started
 
+### How to Create a Sample MCP Server
 
+1. **Create a New Project Directory**
+   ```bash
+   uv init XYZ
+   cd XYZ
+   ```
 
-Example to create a new XYZ server
+2. **Set Up a Virtual Environment**
+   ```bash
+   uv venv
+   source .venv/bin/activate
+   ```
 
-# Create a new directory for our project
-uv init XYZ
-cd XYZ
+3. **Install Dependencies**
+   ```bash
+   uv add "mcp[cli]" httpx
+   ```
 
-# Create virtual environment and activate it
-uv venv
-source .venv/bin/activate
+4. **Create the Server File**
+   ```bash
+   touch XYZ.py
+   ```
 
-# Install dependencies
-uv add "mcp[cli]" httpx
+### How to Run the MCP Server
+To run the server, use the following command:
+```bash
+uv run XYZ.py
+```
 
-# Create our server file
-touch XYZ.py
+## Example: Creating a New XYZ Server
+
+Follow the steps outlined above to create and run a new XYZ server. Replace `XYZ` with your desired project name.

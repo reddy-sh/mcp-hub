@@ -55,3 +55,20 @@ uv run XYZ.py
 ## Example: Creating a New XYZ Server
 
 Follow the steps outlined above to create and run a new XYZ server. Replace `XYZ` with your desired project name.
+
+
+<!-- Git hub copilot automation with git mcp server  -->
+ "github": {
+            "command": "docker",
+            "args": [
+                "run",
+                "-i",
+                "--rm",
+                "-e",
+                "GITHUB_PERSONAL_ACCESS_TOKEN",
+                "ghcr.io/github/github-mcp-server"
+            ],
+            "env": {
+                "GITHUB_PERSONAL_ACCESS_TOKEN": "<YOUR API KEY>"
+            }
+        }

@@ -1,5 +1,14 @@
 {
     "mcpServers": {
+        "mcp-autopilot": {
+            "command": "/Users/reddy.sh/.local/bin/uv",
+            "args": [
+                "--directory",
+                "/Users/reddy.sh/reddy-home/projects/mcp-hub/mcp-servers/mcp-autopilot",
+                "run",
+                "mcp-autopilot.py"
+            ]
+        },
         "weather": {
             "command": "/Users/reddy.sh/.local/bin/uv",
             "args": [

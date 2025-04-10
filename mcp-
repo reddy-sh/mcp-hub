@@ -1,0 +1,39 @@
+import sqlite3
+from faker import Faker
+
+# Initialize Faker for generating sample data
+fake = Faker()
+
+def insert_sample_data():
+    conn = sqlite3.connect('social_platform.db')
+    cursor = conn.cursor()
+
+    # Insert 200,000 users
+    users = [(fake.user_name(), fake.email(), fake.password()) for _ in range(200000)]
+    cursor.executemany("INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?);", users)
+
+    # Insert 200,000 posts
+    posts = [(fake.random_int(min=1, max=200000), fake.text(max_nb_chars=200)) for _ in range(200000)]
+    cursor.executemany("INSERT INTO posts (user_id, content) VALUES (?, ?);", posts)
+
+    # Insert 200,000 comments
+    comments = [(fake.random_int(min=1, max=200000), fake.random_int(min=1, max=200000), fake.text(max_nb_chars=200)) for _ in range(200000)]
+    cursor.executemany("INSERT INTO comments (post_id, user_id, content) VALUES (?, ?, ?);", comments)
+
+    # Insert 200,000 likes
+    likes = [(fake.random_int(min=1, max=200000), fake.random_int(min=1, max=200000)) for _ in range(200000)]
+    cursor.executemany("INSERT INTO likes (post_id, user_id) VALUES (?, ?);", likes)
+
+    # Insert 200,000 friendships
+    friendships = [(fake.random_int(min=1, max=200000), fake.random_int(min=1, max=200000)) for _ in range(200000)]
+    cursor.executemany("INSERT INTO friendships (user_id, friend_id) VALUES (?, ?);", friendships)
+
+    # Insert 200,000 messages
+    messages = [(fake.random_int(min=1, max=200000), fake.random_int(min=1, max=200000), fake.text(max_nb_chars=200)) for _ in range(200000)]
+    cursor.executemany("INSERT INTO messages (sender_id, receiver_id, content) VALUES (?, ?, ?);", messages)
+
+    conn.commit()
+    conn.close()
+
+if __name__ == "__main__":
+    insert_sample_data()

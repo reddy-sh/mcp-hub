@@ -1,0 +1,19 @@
+[project]
+name = "computer-vision"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+   "matplotlib>=3.10.1",
+   "numpy>=1.26.4",
+   "opencv-contrib-python>=4.11.0.86",
+   "scikit-image>=0.25.2",
+   "scikit-learn>=1.6.1",
+   "tensorflow>=2.16.2",
+   "tensorflow-macos>=2.16.2",
+   "tensorflow-metal>=1.2.0",
+   "torch>=2.6.0",
+   "torchaudio>=2.6.0",
+   "torchvision>=0.21.0",
+]

@@ -1,0 +1,10 @@
+mkdir 01_image_handling
+mkdir 02_image_preprocessing
+mkdir 03_feature_extraction
+mkdir 04_basic_ml_concepts
+mkdir 05_deep_learning_cnn
+mkdir 06_image_classification
+mkdir 07_object_detection
+mkdir 08_image_segmentation
+mkdir 09_datasets
+mkdir 10_utils

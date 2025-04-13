@@ -1,0 +1,15 @@
+[project]
+name = "notebooks"
+version = "0.1.0"
+description = "jupyterlab notebooks"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dockerspawner>=14.0.0",
+    "jupyter-ai>=2.31.2",
+    "jupyterhub>=5.2.1",
+    "jupyterlab>=4.4.0",
+    "langchain-ollama>=0.3.1",
+    "oauthenticator>=17.3.0",
+    "passlib>=1.7.4",
+]

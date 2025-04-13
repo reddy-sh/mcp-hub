@@ -39,14 +39,14 @@ def insert_sample_data():
 
     # Ensure unique usernames
     usernames = set()
-    while len(usernames) < 1000000:
+    while len(usernames) < 1000:
         usernames.add(fake.user_name())
 
     print('Inserting data...')
     cursor = conn.cursor()
     # Ensure unique emails
     emails = set()
-    while len(emails) < 1000000:
+    while len(emails) < 1000:
         emails.add(fake.email())
     users = [(username, email, fake.password()) for username, email in zip(usernames, emails)]
 
@@ -60,27 +60,27 @@ def insert_sample_data():
 
     print('Inserting posts...')
     # Insert 200,000 posts
-    posts = [(fake.random_int(min=1, max=1000000), fake.text(max_nb_chars=200)) for _ in range(1000000)]
+    posts = [(fake.random_int(min=1, max=1000), fake.text(max_nb_chars=200)) for _ in range(1000)]
     cursor.executemany("INSERT INTO posts (user_id, content) VALUES (?, ?);", posts)
 
     print('Inserting comments...')
     # Insert 200,000 comments
-    comments = [(fake.random_int(min=1, max=1000000), fake.random_int(min=1, max=1000000), fake.text(max_nb_chars=200)) for _ in range(1000000)]
+    comments = [(fake.random_int(min=1, max=1000), fake.random_int(min=1, max=1000), fake.text(max_nb_chars=200)) for _ in range(1000)]
     cursor.executemany("INSERT INTO comments (post_id, user_id, content) VALUES (?, ?, ?);", comments)
 
     print('Inserting likes...')
     # Insert 200,000 likes
-    likes = [(fake.random_int(min=1, max=1000000), fake.random_int(min=1, max=1000000)) for _ in range(1000000)]
+    likes = [(fake.random_int(min=1, max=1000), fake.random_int(min=1, max=1000)) for _ in range(1000)]
     cursor.executemany("INSERT INTO likes (post_id, user_id) VALUES (?, ?);", likes)
 
     print('Inserting friendships...')
     # Insert 200,000 friendships
-    friendships = [(fake.random_int(min=1, max=1000000), fake.random_int(min=1, max=1000000)) for _ in range(1000000)]
+    friendships = [(fake.random_int(min=1, max=1000), fake.random_int(min=1, max=1000)) for _ in range(1000)]
     cursor.executemany("INSERT INTO friendships (user_id, friend_id) VALUES (?, ?);", friendships)
 
     print('Inserting messages...')
     # Insert 200,000 messages
-    messages = [(fake.random_int(min=1, max=1000000), fake.random_int(min=1, max=1000000), fake.text(max_nb_chars=200)) for _ in range(1000000)]
+    messages = [(fake.random_int(min=1, max=1000), fake.random_int(min=1, max=1000), fake.text(max_nb_chars=200)) for _ in range(1000)]
     cursor.executemany("INSERT INTO messages (sender_id, receiver_id, content) VALUES (?, ?, ?);", messages)
 
     print('Data insertion complete.')

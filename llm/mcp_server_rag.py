@@ -67,7 +67,7 @@ class Message(BaseModel):
 
 # LangChain RAG
 CHROMA_PATH = "chroma_index"
-DOCS_PATH = "./agile_docs/"
+DOCS_PATH = "./doc_hub/"
 
 def answer_question_from_documents(question: str) -> str:
     vectordb = Chroma(persist_directory=CHROMA_PATH, embedding_function=OpenAIEmbeddings())
